@@ -22,8 +22,8 @@ class Artist
    end
 
    def add_song(song)
-     @songs << song
-     song.artist = self
+     # @songs << song dong this on the other side
+     song.artist = self unless song.artist==self
    end
 
    def self.create(name)
@@ -35,6 +35,8 @@ class Artist
    def self.find(name)
      self.all.detect { |artist| artist.name == name }
    end
+
+
 
    def self.find_or_create_by_name(name)
      self.find(name) || self.create(name)

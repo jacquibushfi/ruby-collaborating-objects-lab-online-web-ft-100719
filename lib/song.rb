@@ -17,6 +17,10 @@ class Song
    artist.add_song(self)
  end
 
+  def artist=(artist)
+    @artist = artist
+    artist.song << self unless artist.songs.include?(self)
+  end
 
   def artists
     songs.map do |song|
